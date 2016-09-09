@@ -1,7 +1,7 @@
 define('loginController', [], function() {
 
   var loginController = function($scope) {
-    this.Name = 'Mayank';
+    this.Name = '';
   };
 
   return loginController;

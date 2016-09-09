@@ -1,3 +1,21 @@
-<div>
-  Login
+<div class="container-fluid login-page">
+  <div class="row">
+    <div class="col-md-12">
+      <form class="content-div" name="validationform">
+        <div class="form-group">
+          <label for="username">User Name</label>
+          <input type="text" required class="form-control" id="username" name="username">
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" required class="form-control" id="password" name="password">
+        </div>
+
+        <input type="submit" class="btn btn-default" value="Submit"/><br>
+      </div>
+    </div>
+
+  </div>
+
 </div>
