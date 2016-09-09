@@ -1,10 +1,10 @@
 {
   "name": "Mayank",
   "version": "0.0.0",
-  "description": "Demo Application",
+  "description": "Login Application",
   "main": "server.js",
   "author": {
-    "name": "Mayank",
+    "name": "Mayank Gupta",
     "email": "mayankgupta688@gmail.com"
   },
   "dependencies": {

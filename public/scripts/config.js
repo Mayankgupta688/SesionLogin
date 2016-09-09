@@ -1,10 +1,11 @@
 require.config({
   paths: {
+    app: 'app',
+    homeController: 'homeController',
     angular: '../lib/angular/angular',
+    loginController: 'loginController',
     angularRoute: '../lib/angular-route/angular-route',
-    main: 'main',
-    indexController: 'index-controller',
-    indexFormController: 'indexFormController'
+    authorization: 'authorization'
   },
   shim: {
     angular: {
@@ -16,10 +17,10 @@ require.config({
   }
 });
 
-require(["angularRoute"], function() {
-  require(['main', 'indexController', 'indexFormController'], function(myModule, indexController, indexFormController) {
-    myModule.controller('indexController', ['$scope', '$mdSidenav', '$location', indexController]);
-    myModule.controller('indexFormController', ['$scope', indexFormController]);
-    angular.bootstrap(document, ['myModule']);
+require(['angularRoute'], function() {
+  require(['app', 'homeController', 'loginController'], function(app, homeController, loginController) {
+    app.controller('loginController', ['$scope', loginController]);
+    app.controller('homeController', ['$scope', homeController]);
+    angular.bootstrap(document, ['app']);
   });
 });

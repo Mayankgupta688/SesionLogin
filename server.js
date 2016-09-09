@@ -1,7 +1,7 @@
 // Http is used to create Server to take up the requests
 var http = require('http');
 
-// Express act as a routing Engine 
+// Express act as a routing Engine
 var express = require('express');
 
 // Used as a templating engine
@@ -22,4 +22,4 @@ controller.init(app);
 var server = http.createServer(app);
 
 // Apllication is made to listen Http request at port 3000
-app.listen(3000);
+app.listen(4000);

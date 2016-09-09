@@ -9,13 +9,10 @@
 		  res.render('layout', {});
 		})
 
-		app.get('/index/index.vash', function(req, res) {
-		  res.render('index/index.vash', {});
+		app.get('/content/:page', function(req, res) {
+		  res.render('content/' + req.params.page, {});
 		});
 
-		app.get('/index/new.vash', function(req, res) {
-		  res.render('index/new.vash', {});
-		});
 	};
 
 })(module.exports)

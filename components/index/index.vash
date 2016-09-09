@@ -1,4 +1,0 @@
-<div>
-  Name:  <label ng-bind="name"></label><br/>
-  Age:  <label ng-bind="age"></label>
-</div>
