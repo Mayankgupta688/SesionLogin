@@ -1,11 +1,11 @@
 # MEAN Stack Application
-Basic Node Framework
+Basic Login Functionality
 
-This project shall serve you as a starting point for MEAN application.
+Simple Login Functionality Using Mean Stack.
 
-User shall continue building his architecture on the initial framework already created. 
+Application is validating the data using simple request to MongoDb whic returns back with the message whether the user exists or not
 
-Application contains the basic framework to Integarete Following features in the Node Project
+Application contains the basic framework to Integrate Following features in the Node Project
 
   1. MongoDb: To Integrate With the Database
   2. Vash View Engine: To Integrate View Engine
@@ -14,7 +14,3 @@ Application contains the basic framework to Integarete Following features in the
   5. Grunt: To Load server Modules
   6. Angular: To Integrate Client Side Angular Library
   7. Require.js: Used to manage dependency on the client side
-
-".gitignore" file is ussually made to ignore the changes made to files/folder specified inside the File.
-
-Here we can ignore those files and folder which is not needed to be committed on GitHub Server
