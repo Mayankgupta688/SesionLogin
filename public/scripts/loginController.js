@@ -16,7 +16,7 @@ define('loginController', [], function() {
 
     $scope.authorize = function(details) {
       if(details.data.isSuccess) {
-        if(details.data.user) {
+        if(details.data.user && !details.data.user.alreadyExists) {
           self.location_.path('/');
           $scope.cancel();
         } else {

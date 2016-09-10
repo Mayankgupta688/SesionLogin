@@ -31,6 +31,9 @@
 							db.userDetails.insert({username: userDetails.username, password: userDetails.password}, function(err, result) {
 								next(null, userDetails);
 							});
+						} else {
+							userDetails.alreadyExists = true;
+							next(null, userDetails);
 						}
 					}
 				});

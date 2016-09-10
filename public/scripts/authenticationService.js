@@ -49,11 +49,12 @@ define('authenticationService', [], function(authenticationService) {
 
     this.addUser = function(details, next) {
     	$http.post('/addUser', details).then(function(details) {
-    		console.log(details);
-    		self.localStorage_.user = details.data.user;
-    		next(details);
-    		self.getUserDetails_();
-    		self.rootScope_.$broadcast('loggingInfo');
+    		if(!details.data.user.alreadyExists) {
+	    		self.localStorage_.user = details.data.user;
+	    		self.getUserDetails_();
+	    		self.rootScope_.$broadcast('loggingInfo');
+	    	}
+	    	next(details);
     	});
     }
 
