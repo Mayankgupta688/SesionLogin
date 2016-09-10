@@ -18,6 +18,4 @@ var controller = require('./controller');
 
 controller.init(app);
 
-var server = http.createServer(app);
-
 app.listen(4000);

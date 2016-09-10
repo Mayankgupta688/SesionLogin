@@ -5,7 +5,7 @@ require.config({
     angular: '../lib/angular/angular',
     loginController: 'loginController',
     angularRoute: '../lib/angular-route/angular-route',
-    authorization: 'authorization'
+    ngStorage: '../lib/ngstorage/ngStorage'
   },
   shim: {
     angular: {
@@ -19,8 +19,8 @@ require.config({
 
 require(['angularRoute'], function() {
   require(['app', 'homeController', 'loginController'], function(app, homeController, loginController) {
-    app.controller('loginController', ['$scope', loginController]);
-    app.controller('homeController', ['$scope', homeController]);
+    app.controller('loginController', ['$scope', '$http', '$rootScope', '$location', '$localStorage', loginController]);
+    app.controller('homeController', ['$scope', '$localStorage', '$location', '$rootScope', '$mdDialog', homeController]);
     angular.bootstrap(document, ['app']);
   });
 });

@@ -1,11 +1,11 @@
 (function(controller) {
 
-	var dataController = require("./dataController");
+	var apiController = require("./apiController");
 	var routeController = require("./routeController");
 
 
 	controller.init = function(app) {
-		dataController.init(app);
+		apiController.init(app);
 		routeController.init(app);
 	};
 

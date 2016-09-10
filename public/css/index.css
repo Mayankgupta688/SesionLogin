@@ -45,3 +45,14 @@ html, body {
   padding: 20px;
 }
 
+.loginDialog {
+  height: 350px;
+  width: 392px;
+}
+
+.loginDialog .errorLabel {
+  margin-left: 20px;
+  color: red;
+  font-size: 12px;
+}
+

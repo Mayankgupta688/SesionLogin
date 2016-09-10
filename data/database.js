@@ -1,12 +1,12 @@
 (function(database) {
 
-	var mongodb = reqquire('mongodb');
-	var mongoUrl = "mongodb://localhost:27017/myData";
+	var mongodb = require('mongodb');
+	var mongoUrl = "mongodb://localhost:27017/Login";
 	var theDb = null;
 
 	database.getDb = function(next) {
 		if (theDb) {
-			next(null, theDb)
+			next(null, theDb)	
 		}
 		else {
 			mongodb.MongoClient.connect(mongoUrl, function(err, db) {
@@ -15,7 +15,8 @@
 				}
 				else {
 					theDb = {
-						db: db
+						db: db,
+						userDetails: db.collection('userDetails')
 					};
 					next(null, theDb)
 				}

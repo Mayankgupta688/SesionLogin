@@ -1,7 +1,7 @@
-define('app', [], function(angular) {
+define('app', ['ngStorage'], function(angular) {
 
   var angular = require("angular");
-  var app = angular.module('app', ['ngRoute']);
+  var app = angular.module('app', ['ngRoute', 'ngStorage', 'ngMaterial']);
 
   app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider.when('/', {
@@ -21,11 +21,11 @@ define('app', [], function(angular) {
     });
   }]);
 
-  app.run(function($rootScope) {
-    $rootScope.loginInfo = "User Is Not Logged In"
-    //$rootScope.$on("$locationChangeStart", function(event, next, current) {
-    //  vra dat = "asdgdakd"
-    //});
+  app.run(function($rootScope, $localStorage, $window) {
+    if(!$localStorage.user) {
+      $rootScope.loginInfo = "User Is Not Logged In";
+      $localStorage.user = "Guest";
+    }
   })
 
   return app;
