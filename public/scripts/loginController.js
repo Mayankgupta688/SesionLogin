@@ -1,21 +1,15 @@
 define('loginController', [], function() {
 
-  var loginController = function($scope, $http, $rootScope, $location, $localStorage, $mdDialog) {
+  var loginController = function($scope, $location, $mdDialog, authenticationService) {
 
     var self = $scope;
 
-    $scope.rootScope_ = $rootScope;
-
     $scope.location_ = $location;
 
-    $scope.sessionStorage_ = $localStorage;
-
     $scope.authorizeUser = function() {
-    	$http.post('/authorize', this.userDetails).then(function(details) {
+      authenticationService.authorizeUser(self.userDetails, function(details) {
     		if(details.data.isSuccess) {
     			if(details.data.user) {
-    				self.sessionStorage_.user = "Mayank";
-    				self.rootScope_.loginInfo = "User Is Logged In"
     				self.location_.path('/');
             $scope.cancel();
     			} else {
@@ -25,7 +19,7 @@ define('loginController', [], function() {
           $scope.isSystemFailure = true;
         }
     	});
-    }
+    };
 
     $scope.resetModel = function() {
       $scope.userDetails = {
@@ -38,7 +32,6 @@ define('loginController', [], function() {
 
     $scope.cancel = function() {
       $mdDialog.cancel();
-
     };
 
     $scope.resetModel();

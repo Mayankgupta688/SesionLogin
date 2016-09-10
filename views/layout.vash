@@ -16,7 +16,7 @@
   <body>
     <div id="wrapper">
       <div id="header">
-        <h2>Sample Login Application</h2>
+        <header></header>
       </div>
       <div id="content">
         <ng-view></ng-view>

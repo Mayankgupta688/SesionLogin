@@ -1,9 +1,8 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-offset-2 col-md-10 col-lg-offset-2 col-lg-10 col-sm-12" style="margin-top: 20px;">
       <p>
       	Welcome <label ng-bind="home.user"></label><br><br>
-      	<input type="button" class="btn btn-default" value="Sign In" ng-click="home.showLoginDialog()"/><br>
       </p>
     </div>
   </div>

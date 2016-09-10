@@ -8,10 +8,6 @@ define('app', ['ngStorage'], function(angular) {
       templateUrl: 'content/home.vash',
       controller: 'homeController',
       controllerAs: 'home'
-    }).when('/login', {
-      templateUrl: 'content/login.vash',
-      controller: 'loginController',
-      controllerAs: 'login'
     }).otherwise({
       redirectTo: '/'
     });

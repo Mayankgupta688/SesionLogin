@@ -1,41 +1,22 @@
 define('homeController', [], function(loginController) {
 
-  var homeController = function($scope, $localStorage, $location, $rootScope, $mdDialog, $http) {
+  var homeController = function($scope, $localStorage, $location, $rootScope, $mdDialog, authenticationService) {
+
+    var self = this;
 
   	var loginController = require('loginController');
 
-  	this.rootScope_ = $rootScope;
+  	self.rootScope_ = $rootScope;
 
-    this.location_ = $location;
+    self.location_ = $location;
 
-    this.sessionStorage_ = $localStorage;
+    self.localStorage_ = $localStorage;
 
-  	this.user = $localStorage.user;
-    if(this.user != 'Guest') {
-    		$rootScope.loginInfo = "User Is Logged In"
-    }
+    self.user = self.localStorage_.user.username ? self.localStorage_.user.username: 'Guest';
 
-    this.resetUserForm = function() {
-    	this.userDetails = {
-	    	userName: '',
-	    	password: ''
-	    };
-    }
-
-    this.userDetails = {
-    	userName: '',
-    	password: ''
-    };
-
-    this.showLoginDialog = function(ev) {
-    	this.resetUserForm();
-	    $mdDialog.show({
-	    	controller: loginController,
-	      templateUrl: 'content/login.vash',
-	      parent: angular.element(document.body),
-	      clickOutsideToClose:false,
-	    });
-    }
+    $scope.$on('loggingInfo', function() {
+      self.user = self.localStorage_.user.username ? self.localStorage_.user.username: 'Guest';
+    });
 
   };
 
