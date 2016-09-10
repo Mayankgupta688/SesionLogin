@@ -7,12 +7,31 @@
 			if(err) {
 				next(err, null);
 			} else {
-				console.log(userDetails.username);
 				db.userDetails.findOne({username: userDetails.username, password: userDetails.password}, function(err, result) {
 					if(err) {
 						next(err, null);
 					} else {
 						next(null, result);
+					}
+				});
+			}
+		})
+	}
+
+	userAuthorize.addUser = function(userDetails, next) {
+		database.getDb(function(err, db) {
+			if(err) {
+				next(err, null);
+			} else {
+				db.userDetails.findOne({username: userDetails.username}, function(err, result) {
+					if(err) {
+						next(err, null);
+					} else {
+						if(!result) {
+							db.userDetails.insert({username: userDetails.username, password: userDetails.password}, function(err, result) {
+								next(null, userDetails);
+							});
+						}
 					}
 				});
 			}

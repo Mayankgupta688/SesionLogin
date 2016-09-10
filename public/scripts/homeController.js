@@ -12,10 +12,10 @@ define('homeController', [], function(loginController) {
 
     self.localStorage_ = $localStorage;
 
-    self.user = self.localStorage_.user.username ? self.localStorage_.user.username: 'Guest';
+    self.user = authenticationService.getUserName()
 
     $scope.$on('loggingInfo', function() {
-      self.user = self.localStorage_.user.username ? self.localStorage_.user.username: 'Guest';
+      self.user = authenticationService.getUserName();
     });
 
   };

@@ -8,6 +8,8 @@ define('headerController', [], function() {
 
 		self.rootScope_ = $rootScope;
 
+		self.authenticationService = authenticationService;
+
 		var isAuthenticated = authenticationService.isAuthenticated();
 
 		if(isAuthenticated) {
@@ -34,8 +36,17 @@ define('headerController', [], function() {
 
     self.showLoginDialog = function(ev) {
 	    $mdDialog.show({
-	    	controller: loginController,
+    		controller: loginController,
 	      templateUrl: 'content/login.vash',
+	      parent: angular.element(document.body),
+	      clickOutsideToClose:false,
+	    });
+    }
+
+    self.signUp = function(ev) {
+	    $mdDialog.show({
+    		controller: loginController,
+	      templateUrl: 'content/signUp.vash',
 	      parent: angular.element(document.body),
 	      clickOutsideToClose:false,
 	    });

@@ -17,13 +17,6 @@ define('app', ['ngStorage'], function(angular) {
     });
   }]);
 
-  app.run(function($rootScope, $localStorage, $window) {
-    if(!$localStorage.user) {
-      $rootScope.loginInfo = "User Is Not Logged In";
-      $localStorage.user = "Guest";
-    }
-  })
-
   return app;
 
 });
