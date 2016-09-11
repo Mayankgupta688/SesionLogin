@@ -1,9 +1,19 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-offset-2 col-md-10 col-lg-offset-2 col-lg-10 col-sm-12" style="margin-top: 20px;">
-      <p>
-      	Welcome <label ng-bind="home.user"></label><br><br>
-      </p>
+    <div class="col-md-offset-2 col-md-10 col-lg-offset-2 col-lg-10 col-sm-12 home-container">
+      <p>Welcome <label ng-bind="home.user"></label><br><br></p>
+      <div>
+      	<b>The Application shall Enable user to:<br><br></b>
+      	<p class="listFeatures">Add a user to the DataBase</p>
+      	<p class="listFeatures">Login to the existing User</p>
+      	<p class="listFeatures">Shall Provide a Sign Up and Sign In Feature if User is not Signed in.</p>
+      	<p class="listFeatures">If the User is signed In, it allows user to sign out</p>
+      	<p class="listFeatures">Would not allow multiple Users with same name to Sign Up</p>
+      	<p class="listFeatures">User shall remain Signed in, Until explicitely Signed out.</p>
+      </div><br><br>
+      <div>
+      	<p>**** Due to Time Constraints, the Application is not Fully Supporting Mobile Interface</p>
+      </div>
     </div>
   </div>
 </div>

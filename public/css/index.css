@@ -55,4 +55,11 @@ html, body {
   color: red;
   font-size: 12px;
 }
+.listFeatures {
+  margin-left: 30px;
+}
+
+.home-container {
+  margin-top: 20px;
+}
 

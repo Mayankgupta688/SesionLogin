@@ -18,7 +18,6 @@
 						db: db,
 						userDetails: db.collection('userDetails')
 					};
-					next(null, theDb)
 				}
 			})
 		}
