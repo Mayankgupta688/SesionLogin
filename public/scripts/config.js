@@ -1,34 +1,30 @@
-require.config({
-  paths: {
-    app: 'app',
-    homeController: 'homeController',
-    angular: '../lib/angular/angular',
-    loginController: 'loginController',
-    angularRoute: '../lib/angular-route/angular-route',
-    ngStorage: '../lib/ngstorage/ngStorage',
-    authenticationService: 'authenticationService',
-    headerController: 'headerController',
-    headerDirective: 'headerDirective'
+var app = angular.module('app', []);
 
-  },
-  shim: {
-    angular: {
-      exports: 'angular'
-    },
-    angularRoute: {
-      deps: ['angular']
-    }
-  }
-});
+var homeController = function($scope, $http) {
 
-require(['angularRoute'], function() {
-  require(['app', 'homeController', 'loginController', 'authenticationService', 'headerController', 'headerDirective'],
-    function(app, homeController, loginController, authenticationService, headerController, headerDirective) {
-      app.service('authenticationService', authenticationService);
-      app.controller('loginController', loginController);
-      app.controller('homeController', homeController);
-      app.controller('headerController', headerController);
-      app.directive('header', headerDirective);
-      angular.bootstrap(document, ['app']);
+  var self = $scope;
+
+  self.user = "Guest";
+  self.details = {};
+  self.details.username = "";
+  self.details.password = "";
+
+
+  self.authorizeUser = function() {
+    $http.post('/authorize', self.details).then(function(details) {
+      if(details.isAuthorised) {
+        self.user = details.user;
+      }
     });
-});
+  };
+
+  self.logout = function() {
+    $http.post('/logout').then(function() {
+      self.user = "Guest";
+    });
+  }
+
+};
+
+app.controller('homeController', homeController);
+
