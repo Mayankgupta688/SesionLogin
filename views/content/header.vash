@@ -1,9 +1,0 @@
-<div style="text-align: center; font-size: 38px; margin-top: 25px; margin-bottom: 25px;" ng-controller="headerController">
-  <b>Login</b>
-  <md-button style="position: fixed; top:40px; right: 50px;" ng-click="authenticateUser()">
-    {{buttonText}}
-  </md-button>
-  <md-button style="position: fixed; top:40px; right: 150px;" ng-if="!authenticationService.isAuthenticated()" ng-click="signUp()">
-    Sign Up
-  </md-button>
-</div>
